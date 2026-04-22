@@ -31,7 +31,7 @@ if api_key:
             if st.button("🚀 开始检查文案"):
                 with st.spinner("AI 正在像素级扫描并检查文案，请稍候..."):
                     try:
-                        model = genai.GenerativeModel('gemini-1.5-flash-latest')
+                        model = genai.GenerativeModel('gemini-2.5-flash')
                         prompt = """
                         你现在是一个专业的设计稿文案校对专家。
                         请仔细阅读这张图片中的所有文本，并执行以下任务：
@@ -73,7 +73,7 @@ if api_key:
                         if gemini_file.state.name == "FAILED":
                             st.error("PDF 处理失败，请检查文件是否损坏。")
                         else:
-                            model = genai.GenerativeModel('gemini-1.5-flash-latest')
+                            model = genai.GenerativeModel('gemini-2.5-flash')
                             prompt = """
                             你现在是一个专业的设计稿文案校对专家。
                             这是一份多页的设计稿 PDF 文件。请你逐页仔细阅读其中的所有文本，并执行以下任务：
